@@ -1,11 +1,13 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
-const { Octokit } = require("@octokit/action");
 
 try {
-  const octokit = new Octokit();
+  const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+  const octokit = github.getOctokit(GITHUB_TOKEN);
+  const issues = octokit.rest.issues.list();
+  console.log(issues);
+
   const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
-  // octokit.rest.issues.list();
   console.log("owner", owner);
   console.log("repo", repo);
 
