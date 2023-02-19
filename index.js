@@ -4,12 +4,12 @@ const github = require('@actions/github');
 try {
   const branchName = core.getInput('branch-name');
   console.log(`ブランチ名は ${branchName}`);
-  const words = str.split('/');
+  const words = branchName.split('/');
   for(i = 0; i < words.length; i++){
     console.log(words[i]);
   }
 
-  
+
   // // `who-to-greet` input defined in action metadata file
   // const nameToGreet = core.getInput('who-to-greet');
   // console.log(`Hello ${nameToGreet}!`);
