@@ -31,6 +31,7 @@ npm init -y
 ```
 npm install @actions/core
 npm install @actions/github
+npm install @octokit/rest
 ```
 
 https://docs.github.com/ja/actions/using-workflows/events-that-trigger-workflows

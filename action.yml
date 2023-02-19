@@ -6,13 +6,16 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  branch-name:
+    description: 'branch name should be "{prefix}/{issueNumber}/{issueTitle}"'
+    required: true
+# outputs:
+#   time: # id of output
+#     description: 'The time we greeted you'
 runs:
   using: 'node16'
   main: 'index.js'
 
 branding:
-  icon: 'tag'
+  icon: 'link'
   color: 'green'

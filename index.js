@@ -1,14 +1,21 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
+const core = require("@actions/core");
+const github = require("@actions/github");
+const { Octokit } = require("@octokit/action");
 
 try {
-  const branchName = core.getInput('branch-name');
-  console.log(`ブランチ名は ${branchName}`);
-  const words = branchName.split('/');
-  for(i = 0; i < words.length; i++){
-    console.log(words[i]);
-  }
+  const octokit = new Octokit();
+  const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
+  // octokit.rest.issues.list();
+  console.log("owner", owner);
+  console.log("repo", repo);
 
+  const branchName = core.getInput("branch-name");
+  console.log(`ブランチ名は ${branchName}`);
+  const words = branchName.split("/");
+
+  const prefix = words[0];
+  const issueNumber = words[1];
+  const branchTitle = words[2];
 
   // // `who-to-greet` input defined in action metadata file
   // const nameToGreet = core.getInput('who-to-greet');
