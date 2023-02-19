@@ -1,4 +1,5 @@
 name: 'Hello World by yui666a'
+author: 'yui666a'
 description: 'Greet someone and record the time'
 inputs:
   who-to-greet:  # id of input
@@ -11,3 +12,7 @@ outputs:
 runs:
   using: 'node16'
   main: 'index.js'
+
+branding:
+  icon: 'tag'
+  color: 'green'
