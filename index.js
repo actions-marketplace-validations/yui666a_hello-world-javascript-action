@@ -5,8 +5,12 @@ async function run() {
   try {
     const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
     const octokit = github.getOctokit(GITHUB_TOKEN);
-    const issues = await octokit.rest.issues.list();
+    const issues = await octokit.rest.issues.listForRepo({
+      owner: "style-arts-corp",
+      repo: "NIFP",
+    });
     console.log(issues);
+    console.log(issues.data);
 
     const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
     console.log("owner", owner);
@@ -30,7 +34,9 @@ async function run() {
     // console.log(`The event payload: ${payload}`);
   } catch (error) {
     core.setFailed(error.message);
+    console.error(error.message);
   }
 }
-
+console.log("start")
 run();
+console.log("end")
